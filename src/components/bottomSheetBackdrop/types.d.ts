@@ -46,4 +46,5 @@ export interface BottomSheetDefaultBackdropProps
    * @default true
    */
   closeOnPress?: boolean;
+  onClose?: () => void,
 }

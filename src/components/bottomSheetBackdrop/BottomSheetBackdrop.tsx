@@ -33,6 +33,7 @@ const BottomSheetBackdropComponent = ({
   enableTouchThrough = DEFAULT_ENABLE_TOUCH_THROUGH,
   closeOnPress = DEFAULT_CLOSE_ON_PRESS,
   style,
+  onClose,
 }: BottomSheetDefaultBackdropProps) => {
   //#region hooks
   const { close } = useBottomSheet();
@@ -48,7 +49,7 @@ const BottomSheetBackdropComponent = ({
   const gestureHandler = useAnimatedGestureHandler<TapGestureHandlerGestureEvent>(
     {
       onFinish: () => {
-        runOnJS(close)();
+        runOnJS(onClose ? onClose : close)();
       },
     }
   );
